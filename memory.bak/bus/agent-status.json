@@ -1,0 +1,56 @@
+{
+  "_comment": "麒麟体系 · Agent 共享状态总线",
+  "_updated": "2026-06-22T10:45:00+08:00",
+  "agents": {
+    "main": {
+      "name": "麒麟",
+      "role": "主控调度",
+      "status": "active",
+      "current_tasks": [],
+      "skills": ["意图解析", "任务分发", "结果汇总", "Agent协调"],
+      "load": 0
+    },
+    "baize": {
+      "name": "白泽",
+      "role": "记忆中枢",
+      "status": "active",
+      "current_tasks": [],
+      "skills": ["记忆存储", "记忆检索", "知识图谱", "上下文管理"],
+      "load": 0
+    },
+    "xuanwu": {
+      "name": "玄武",
+      "role": "安全审计",
+      "status": "standby",
+      "current_tasks": [],
+      "skills": ["安全审查", "权限审计", "风险评估"],
+      "load": 0
+    },
+    "qiongqi": {
+      "name": "穷奇",
+      "role": "安全审计",
+      "status": "standby",
+      "current_tasks": [],
+      "skills": ["异常检测", "行为审计"],
+      "load": 0
+    },
+    "tianyan": {
+      "name": "天眼",
+      "role": "安全审计",
+      "status": "standby",
+      "current_tasks": [],
+      "skills": ["日志分析", "监控告警"],
+      "load": 0
+    },
+    "diting": {
+      "name": "谛听",
+      "role": "安全审计",
+      "status": "standby",
+      "current_tasks": [],
+      "skills": ["情报收集", "威胁分析"],
+      "load": 0
+    }
+  },
+  "task_queue": [],
+  "shared_context": {}
+}

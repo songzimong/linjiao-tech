@@ -1,0 +1,151 @@
+{
+  "_comment": "麒麟体系 · Agent 能力画像索引（全量）",
+  "_updated": "2026-06-26T15:30:00+08:00",
+  "_version": "hermes-fusion-v2",
+  "agents": {
+    "main": {
+      "name": "麒麟", "tier": "commander",
+      "capabilities": ["intent_parsing", "task_dispatch", "result_aggregation", "agent_coordination"],
+      "specialties": ["全局调度", "意图解析", "多Agent协调"],
+      "availability": "always_on", "skill_level": {"dispatch": 5, "analysis": 5, "coordination": 5}
+    },
+    "baize": {
+      "name": "白泽", "tier": "memory",
+      "capabilities": ["memory_storage", "memory_retrieval", "knowledge_graph", "context_management"],
+      "specialties": ["记忆宫殿", "知识图谱", "上下文关联"],
+      "availability": "always_on", "skill_level": {"storage": 5, "retrieval": 5, "organization": 5}
+    },
+    "xuanwu": {
+      "name": "玄武", "tier": "security",
+      "capabilities": ["security_audit", "permission_review", "risk_assessment"],
+      "specialties": ["安全审计", "权限管理", "合规检查"],
+      "availability": "on_demand", "skill_level": {"audit": 5, "risk": 4, "compliance": 4}
+    },
+    "qiongqi": {
+      "name": "穷奇", "tier": "security",
+      "capabilities": ["anomaly_detection", "behavior_analysis"],
+      "specialties": ["异常检测", "行为审计"],
+      "availability": "on_demand", "skill_level": {"detection": 4, "analysis": 4}
+    },
+    "tianyan": {
+      "name": "天眼", "tier": "security",
+      "capabilities": ["log_analysis", "monitoring_alerts"],
+      "specialties": ["日志分析", "监控告警"],
+      "availability": "on_demand", "skill_level": {"monitoring": 4, "alerting": 4}
+    },
+    "diting": {
+      "name": "谛听", "tier": "security",
+      "capabilities": ["intelligence_gathering", "threat_analysis"],
+      "specialties": ["情报收集", "威胁分析"],
+      "availability": "on_demand", "skill_level": {"gathering": 4, "analysis": 4}
+    },
+    "qinglong": {
+      "name": "青龙", "tier": "worker",
+      "capabilities": ["code_generation", "code_review", "tech_architecture"],
+      "specialties": ["全栈开发", "技术架构"],
+      "availability": "always_on", "skill_level": {"coding": 5, "architecture": 4}
+    },
+    "zhuque": {
+      "name": "朱雀", "tier": "worker",
+      "capabilities": ["product_design", "ui_ux", "user_research"],
+      "specialties": ["产品设计", "用户体验"],
+      "availability": "always_on", "skill_level": {"design": 5, "research": 4}
+    },
+    "yinglong": {
+      "name": "应龙", "tier": "worker",
+      "capabilities": ["data_analysis", "ml_engineering", "data_visualization"],
+      "specialties": ["数据分析", "机器学习"],
+      "availability": "always_on", "skill_level": {"analysis": 5, "ml": 4, "viz": 5}
+    },
+    "bifang": {
+      "name": "毕方", "tier": "worker",
+      "capabilities": ["content_writing", "copywriting", "translation"],
+      "specialties": ["内容创作", "文案写作"],
+      "availability": "always_on", "skill_level": {"writing": 5, "editing": 4}
+    },
+    "pixiu": {
+      "name": "貔貅", "tier": "worker",
+      "capabilities": ["financial_analysis", "budget_planning", "investment_advice"],
+      "specialties": ["财务分析", "预算规划"],
+      "availability": "on_demand", "skill_level": {"finance": 5, "budget": 4}
+    },
+    "taotie": {
+      "name": "饕餮", "tier": "worker",
+      "capabilities": ["web_scraping", "data_collection", "content_synthesis"],
+      "specialties": ["数据采集", "内容聚合"],
+      "availability": "always_on", "skill_level": {"scraping": 5, "synthesis": 4}
+    },
+    "taowu": {
+      "name": "梼杌", "tier": "worker",
+      "capabilities": ["ops_management", "infrastructure", "deployment"],
+      "specialties": ["运维管理", "基础设施"],
+      "availability": "on_demand", "skill_level": {"ops": 5, "infra": 4}
+    },
+    "baihu": {
+      "name": "白虎", "tier": "worker",
+      "capabilities": ["project_management", "scheduling", "resource_planning"],
+      "specialties": ["项目管理", "资源调度"],
+      "availability": "always_on", "skill_level": {"pm": 5, "scheduling": 4}
+    },
+    "bixi": {
+      "name": "赑屃", "tier": "worker",
+      "capabilities": ["database_design", "data_modeling", "sql_optimization"],
+      "specialties": ["数据库设计", "数据建模"],
+      "availability": "on_demand", "skill_level": {"db": 5, "modeling": 4}
+    },
+    "bixie": {
+      "name": "辟邪", "tier": "worker",
+      "capabilities": ["legal_compliance", "contract_review", "policy_drafting"],
+      "specialties": ["法务合规", "合同审查"],
+      "availability": "on_demand", "skill_level": {"legal": 5, "compliance": 4}
+    },
+    "chenghuang": {
+      "name": "城隍", "tier": "worker",
+      "capabilities": ["hr_management", "recruitment", "performance_review"],
+      "specialties": ["人事管理", "招聘评估"],
+      "availability": "on_demand", "skill_level": {"hr": 5, "recruitment": 4}
+    },
+    "dangkang": {
+      "name": "当康", "tier": "worker",
+      "capabilities": ["supply_chain", "logistics", "inventory_management"],
+      "specialties": ["供应链管理", "物流优化"],
+      "availability": "on_demand", "skill_level": {"logistics": 5, "inventory": 4}
+    },
+    "jinwu": {
+      "name": "金乌", "tier": "worker",
+      "capabilities": ["solar_energy", "power_systems", "energy_optimization"],
+      "specialties": ["能源优化", "动力系统"],
+      "availability": "on_demand", "skill_level": {"energy": 5, "power": 4}
+    },
+    "wenyao": {
+      "name": "文鳐", "tier": "worker",
+      "capabilities": ["documentation", "technical_writing", "knowledge_base"],
+      "specialties": ["文档编写", "知识库管理"],
+      "availability": "always_on", "skill_level": {"docs": 5, "kb": 4}
+    },
+    "xiezhi": {
+      "name": "獬豸", "tier": "worker",
+      "capabilities": ["testing", "qa", "quality_assurance"],
+      "specialties": ["测试开发", "质量保障"],
+      "availability": "always_on", "skill_level": {"testing": 5, "qa": 5}
+    },
+    "zhulong": {
+      "name": "烛龙", "tier": "worker",
+      "capabilities": ["night_ops", "batch_processing", "cron_jobs"],
+      "specialties": ["夜间运维", "批处理调度"],
+      "availability": "on_demand", "skill_level": {"batch": 5, "cron": 5}
+    },
+    "qingniao": {
+      "name": "青鸟", "tier": "worker",
+      "capabilities": ["communication", "notification", "reporting"],
+      "specialties": ["消息通知", "报告生成"],
+      "availability": "always_on", "skill_level": {"notify": 5, "report": 4}
+    }
+  },
+  "dispatch_rules": {
+    "match_by_capability": true,
+    "balance_load": true,
+    "prefer_experience": true,
+    "fallback_to_main": true
+  }
+}

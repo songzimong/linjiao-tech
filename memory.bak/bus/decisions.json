@@ -1,0 +1,27 @@
+{
+  "_comment": "麒麟体系 · 关键决策记录",
+  "_updated": "2026-06-22T10:45:00+08:00",
+  "decisions": [
+    {
+      "id": "D001",
+      "date": "2026-06-20",
+      "topic": "采用麒麟体系架构",
+      "details": "主控(main)+记忆(baize)+安全(xuanwu等)+虾兵(23个领域Agent)",
+      "author": "麒麟"
+    },
+    {
+      "id": "D002",
+      "date": "2026-06-20",
+      "topic": "公司命名",
+      "details": "麟角科技 (Linjiao Technology Co., Ltd.)",
+      "author": "麒麟"
+    },
+    {
+      "id": "D003",
+      "date": "2026-06-22",
+      "topic": "Hermes 能力融合",
+      "details": "不引入外部框架，在现有 OpenClaw 体系内融合 Hermes 的记忆、协作、调度能力",
+      "author": "麒麟"
+    }
+  ]
+}

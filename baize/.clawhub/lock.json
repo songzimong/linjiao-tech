@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "skills": {
+    "context-cleanup": {
+      "version": "0.3.0",
+      "installedAt": 1781970353686,
+      "registry": "https://clawhub.ai"
+    }
+  }
+}

@@ -1,0 +1,203 @@
+Vue 3 组合式 API 实战：从零搭建一个待办事项应用
+
+前言
+
+Vue 3 的 Composition API 是前端开发的重大升级。相比 Options API，它将相关逻辑聚合在一起，代码更易读、更易复用。本文将带你从零搭建一个功能完整的待办事项应用，涵盖增删改查、筛选、本地存储等核心功能。
+
+为什么选择 Vue 3 + Composition API？
+
+1. 更好的 TypeScript 支持
+2. 逻辑复用更优雅（Composables）
+3. 性能优化（静态提升、补丁标志）
+4. 更小的打包体积（Tree-shaking）
+
+项目结构
+
+src/
+├── components/
+│   ├── TodoInput.vue
+│   ├── TodoItem.vue
+│   └── TodoFilter.vue
+├── composables/
+│   └── useTodos.js
+├── App.vue
+└── main.js
+
+核心代码实现
+
+一、Composable：useTodos.js
+
+这是整个项目的核心逻辑层。
+
+import { ref, computed, watch } from 'vue'
+
+export function useTodos() {
+  const todos = ref([])
+  const filter = ref('all')
+
+  // 从 localStorage 加载
+  const saved = localStorage.getItem('vue3-todos')
+  if (saved) {
+    todos.value = JSON.parse(saved)
+  }
+
+  // 自动保存到 localStorage
+  watch(todos, (newVal) => {
+    localStorage.setItem('vue3-todos', JSON.stringify(newVal))
+  }, { deep: true })
+
+  // 添加待办
+  function addTodo(text) {
+    if (!text.trim()) return
+    todos.value.push({
+      id: Date.now(),
+      text,
+      done: false,
+      createdAt: new Date().toISOString()
+    })
+  }
+
+  // 删除待办
+  function removeTodo(id) {
+    todos.value = todos.value.filter(t => t.id !== id)
+  }
+
+  // 切换完成状态
+  function toggleTodo(id) {
+    const todo = todos.value.find(t => t.id === id)
+    if (todo) todo.done = !todo.done
+  }
+
+  // 计算属性：过滤后的列表
+  const filteredTodos = computed(() => {
+    switch (filter.value) {
+      case 'active': return todos.value.filter(t => !t.done)
+      case 'done': return todos.value.filter(t => t.done)
+      default: return todos.value
+    }
+  })
+
+  // 统计信息
+  const stats = computed(() => ({
+    total: todos.value.length,
+    active: todos.value.filter(t => !t.done).length,
+    done: todos.value.filter(t => t.done).length
+  }))
+
+  return {
+    todos,
+    filter,
+    filteredTodos,
+    stats,
+    addTodo,
+    removeTodo,
+    toggleTodo
+  }
+}
+
+二、TodoInput.vue
+
+<template>
+  <div class="todo-input">
+    <input
+      v-model="text"
+      @keyup.enter="handleAdd"
+      placeholder="输入待办事项..."
+    />
+    <button @click="handleAdd">添加</button>
+  </div>
+</template>
+
+<script setup>
+import { ref } from 'vue'
+
+const emit = defineEmits(['add'])
+const text = ref('')
+
+function handleAdd() {
+  if (text.value.trim()) {
+    emit('add', text.value)
+    text.value = ''
+  }
+}
+</script>
+
+三、TodoItem.vue
+
+<template>
+  <li class="todo-item" :class="{ done: todo.done }">
+    <input
+      type="checkbox"
+      :checked="todo.done"
+      @change="$emit('toggle', todo.id)"
+    />
+    <span>{{ todo.text }}</span>
+    <button @click="$emit('remove', todo.id)">删除</button>
+  </li>
+</template>
+
+<script setup>
+defineProps(['todo'])
+defineEmits(['toggle', 'remove'])
+</script>
+
+四、App.vue
+
+<template>
+  <div class="app">
+    <h1>Vue 3 待办事项</h1>
+    <TodoInput @add="addTodo" />
+    <ul>
+      <TodoItem
+        v-for="todo in filteredTodos"
+        :key="todo.id"
+        :todo="todo"
+        @toggle="toggleTodo"
+        @remove="removeTodo"
+      />
+    </ul>
+    <div class="stats">
+      总计: {{ stats.total }} | 未完成: {{ stats.active }} | 已完成: {{ stats.done }}
+    </div>
+  </div>
+</template>
+
+<script setup>
+import { useTodos } from './composables/useTodos'
+import TodoInput from './components/TodoInput.vue'
+import TodoItem from './components/TodoItem.vue'
+
+const {
+  filteredTodos,
+  stats,
+  addTodo,
+  toggleTodo,
+  removeTodo
+} = useTodos()
+</script>
+
+关键技术点解析
+
+1. 响应式原理
+Vue 3 使用 Proxy 替代了 Vue 2 的 Object.defineProperty，性能更好，且能检测数组索引变化和对象属性的添加删除。
+
+2. Composables 的优势
+把相关逻辑封装在一个函数中，组件之间共享状态和行为的最佳实践。相比 Mixins，Composables 没有命名冲突问题，来源清晰。
+
+3. 生命周期钩子
+setup() 相当于 beforeCreate + created。其他钩子需要导入：
+import { onMounted, onUnmounted } from 'vue'
+
+4. 计算属性 vs 方法
+computed 有缓存机制，依赖不变时不会重新计算。适合做筛选、统计等场景。
+
+总结
+
+Composition API 让 Vue 3 的代码组织更加灵活和可复用。通过 Composables，我们可以像 React Hooks 一样把逻辑抽离出来，但保留了 Vue 的响应式优势。
+
+关于麟角科技
+
+我们是麟角科技，专注于前端开发和自动化办公技术服务。
+联系方式：知乎私信或通过电鸭社区联系我们。
+
+寸铁杀人，滴水穿石。

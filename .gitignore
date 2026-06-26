@@ -1,0 +1,37 @@
+# OpenClaw internals
+.openclaw/
+*.swp
+*~
+
+# Large directories to ignore
+qilin/
+baihu/
+bifang/
+bixi/
+bixie/
+chenghuang/
+dangkang/
+diting/
+jinwu/
+pixiu/
+qinglong/
+qingniao/
+qiongqi/
+sop/
+taotie/
+taowu/
+tianyan/
+wenyao/
+xiezhi/
+xuanwu/
+yinglong/
+zhulong/
+zhuque/
+main/
+
+# Node modules
+node_modules/
+
+# OS files
+.DS_Store
+Thumbs.db
